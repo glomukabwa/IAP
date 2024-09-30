@@ -1,6 +1,6 @@
 <?php
 //Creating constants
-  $servername = "localhost";
+  $servername = "localhost:3307";
   $username = "root";
   $password = "b@bad1ana";
   $dbname = "api_d";
