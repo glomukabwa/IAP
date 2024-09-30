@@ -18,6 +18,10 @@ if(ctype_alpha(str_replace(" ", "", str_replace("\'", "", $fullname))) === FALSE
     $errors['nameLetters_err'] = "Invalid name format: Full name must contain letters and spaces only etc " . $fullname;
 }
 
+// verify that the email has got the correct format
+if(!filter_var($email_address, FILTER_VALIDATE_EMAIL)){
+    $errors['email_format_err'] = 'Wrong email format';
+}
         }
     }
 }
