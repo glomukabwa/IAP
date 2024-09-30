@@ -47,6 +47,11 @@ if ($spot_username_res > $exist_count){
     $errors['usernameExists_err'] = "Username Already Exists";
 }
 
+// Verify if username contain letters only
+if (!ctype_alpha($username)) {
+    $errors['usernameLetters_err'] = "Invalid username format. Username must contain letters only";
+    $ObjGlob->setMsg('errors', $errors, 'invalid');
+}
         }
     }
 }
