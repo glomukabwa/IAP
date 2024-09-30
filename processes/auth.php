@@ -35,6 +35,12 @@ if(!in_array($spot_dom, $conf['valid_domains'])){
 }
 $exist_count = 0;
 
+// Verify Email Already Exists
+$spot_email_address_res = $conn->count_results(sprintf("SELECT email FROM users WHERE email = '%s' LIMIT 1", $email_address));
+if ($spot_email_address_res > $exist_count){
+    $errors['mailExists_err'] = "Email Already Exists";
+}
+
         }
     }
 }
