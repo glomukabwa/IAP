@@ -1,4 +1,5 @@
 <?php
+// Website user form
 class user_forms{
     public function sign_up_form($ObjGlob){
 ?>

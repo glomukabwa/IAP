@@ -1,4 +1,5 @@
 <?php
+// Website headings
 class headings{
     public function main_banner(){
         ?>
