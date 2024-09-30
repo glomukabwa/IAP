@@ -52,6 +52,28 @@ if (!ctype_alpha($username)) {
     $errors['usernameLetters_err'] = "Invalid username format. Username must contain letters only";
     $ObjGlob->setMsg('errors', $errors, 'invalid');
 }
+
+// Implement 2FA (email => PHP-Mailer)
+// ===================================
+// Send email verification with an OTP (OTC)
+// Verify that the password is identical to the repeat passsword
+// verify that the password length is between 4 and 8 characters
+if(!count($errors)){
+    $cols = ['fullname', 'email', 'username'];
+    $vals = [$fullname, $email_address, $username];
+    $data = array_combine($cols, $vals);
+    $insert = $conn->insert('users', $data);
+    if($insert === TRUE){
+        header('Location: signup.php');
+        unset($_SESSION["fullname"], $_SESSION["email_address"], $_SESSION["username"]);
+        exit();
+    }else{
+        die($insert);
+    }
+}else{
+    $ObjGlob->setMsg('msg', 'Error(s)', 'invalid');
+    $ObjGlob->setMsg('errors', $errors, 'invalid');
+}
         }
     }
 }
