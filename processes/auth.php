@@ -1,4 +1,5 @@
 <?php
+// Implementing signup function
 class auth{
     public function signup($conn, $ObjGlob){
         if(isset($_POST["signup"])){
@@ -74,6 +75,6 @@ if(!count($errors)){
     $ObjGlob->setMsg('msg', 'Error(s)', 'invalid');
     $ObjGlob->setMsg('errors', $errors, 'invalid');
 }
-        }
+        } 
     }
 }
